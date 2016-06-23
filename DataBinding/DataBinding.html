@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <title>Two-way Binding</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  </head>
+  <body>
+    <label>Ciao come ti chiami?</label>
+    <input ng-model="nome" type="text">
+    <h1>Ciao {{ nome }} </h1>
+    <p>
+      Questa è la tua prima applicazione web usando AngularJS, In questo caso stai usando il two-way
+      bindind cioè le modifiche che avvengono nel modello si rifletto direttamente nella view, quello che scrivi lo puoi vedere in tempo reale.
+    </p>
+  </body>
+</html>
