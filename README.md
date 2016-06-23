@@ -32,4 +32,3 @@ Per vederlo in azione crea un file html e scrivi il seguente snippet.
 * Con ng-model dichiariamo un nome al modello e tramite l'input gli assegniamo un valore che possiamo riutilizzare usando il nome del modello dentro le doppie parentesi graffe {{nome}}
 
 Come puoi notare quello che inserisci nel modello è visibile in tempo reale nella view ecco il Two-way Binding di AngularJS. Si può dire che AngulaJS crea un live template.
->>>>>>> dc0f7406cb33e4048ff833fb5d63e103dfe640fc
