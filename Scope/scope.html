@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Declaring Module</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="scopeController.js" type="text/javascript">
+
+    </script>
+  </head>
+  <body ng-app="myApp" ng-controller="MyController">
+    <!-- <label>Ciao come ti chiami?</label>
+    <input ng-model="nome" type="text"> -->
+    <h1> Qui vedrai le informazioni derivanti dallo scope </h1>
+    <!-- stampa dell'oggetto $scope.persona derivante dal controller -->
+    <h2>{{persona}}</h2>
+    <!-- Visualizziamo le singole proprietà dell'oggetto -->
+    <label>Nome: </label>{{persona.nome}} <br>
+    <label>Cognome: </label>{{persona.cognome}} <br>
+    <label>Data di nascita: </label>{{persona.dataNascita}}
+
+  </body>
+</html>
