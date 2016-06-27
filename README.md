@@ -62,5 +62,43 @@ Una volta dichiarato il Module per usarlo correttamente è necessario inserirlo 
 <body ng-app="myApp">
 ```
 ### Scopes
+Gli Scopes in AngulaJS sono una parte fondamentale di ogni singola app.
+Il compito dello scope è di consentire la definizione del modello e la sua esposizione alla view, infatti tutte le proprietà dello $scope saranno accessibili dalla view tramite ng-model.
+Possono essere visti come il luogo dove definire le nostre funzionalità, i metodi nel nostro controller e le proprietà della view.
+Vediamo un esempio (non ti preoccupare della funzione controller, i controllers li andremo a spiegare in seguito)
+```javascript
+/* scope.html */
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Declaring Module</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="scopeController.js" type="text/javascript">
+    </script>
+  </head>
+  <body ng-app="myApp" ng-controller="MyController">
+    <h1> Qui vedrai le informazioni derivanti dallo scope </h1>
+    // stampa dell'oggetto $scope.persona derivante dal controller
+    <h2>{{persona}}</h2>
+    // Visualizziamo le singole proprietà dell'oggetto
+    <label>Nome: </label>{{persona.nome}} <br>
+    <label>Cognome: </label>{{persona.cognome}} <br>
+    <label>Data di nascita: </label>{{persona.dataNascita}}
+  </body>
+</html>
+```
+```javascript
+/* scope.js */
+angular.module('myApp', [])
+  .controller('MyController',
+  function($scope) {
+    $scope.persona = {};
+    $scope.persona.nome = "Luca";
+    $scope.persona.cognome = "Rossi";
+    $scope.persona.dataNascita = "06/06/1993";
+  });
+```
+Come puoi vedere una volta definite le proprietà del nostro $scope saremo in grado di accerdervi dalla view.
 
 
