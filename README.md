@@ -50,6 +50,10 @@ Il modo di dichiare un Module è il seguente:
 ```javascript
 angular.module('myApp', []); 
 ```
+o
+```javascript
+var app = angular.module('app', []);
+```
 Come puoi vedere abbiamo bisogno di passare due argomenti:
 * Il primo argomento è il nome del nostro Module
 * Il secondo è la lista delle dependencies (dipendenze) da iniettare nel module nel caso ne avessimo bisogno.
@@ -90,8 +94,8 @@ Vediamo un esempio (non ti preoccupare della funzione controller, i controllers 
 ```
 ```javascript
 /* scope.js */
-angular.module('myApp', [])
-  .controller('MyController',
+angular.module('myApp', []) /*si sarebbe potuto dichiare il modula anche nel sequente modo: var app = angular.module('app', []);*/
+  .controller('MyController', /*e di conseguenza: app.controller...*/
   function($scope) {
     $scope.persona = {};
     $scope.persona.nome = "Luca";
@@ -100,5 +104,47 @@ angular.module('myApp', [])
   });
 ```
 Come puoi vedere una volta definite le proprietà del nostro $scope saremo in grado di accerdervi dalla view.
+
+### Controllers
+Il controller in AngularJS è una funzione che aggiunge ulteriori funzionalità alla view, per poter fare questo è necessario passare $scope come argomento. Ed è ciò che fa comunicare la View con il Controller Vediamo un esempio:
+```javascript
+ /*controller.html*/
+ <!DOCTYPE html>
+<html>
+  <head>
+    <title>Controllers</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="controllerController.js" type="text/javascript"></script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="FirstController">
+      <h4>Aggiungi e sottrai </h4>
+      <button ng-click="aggiungi()">Aggiungi</button>
+      <button ng-click="sottrai()">Sottrai</button>
+      <h4>Contatore: {{ count }}</h4>
+    </div>
+  </body>
+</html>
+```
+```javascript
+ /*controllerController.js*/
+ angular.module('myApp', [])
+  .controller('FirstController', function($scope) {
+    $scope.count = 0;
+    $scope.aggiungi = function() {
+      $scope.count += 1;
+    };
+    $scope.sottrai = function() {
+      $scope.count -= 1;
+    };
+  });
+```
+Come possiamo vedere il Controller contiene la logica della view in un singolo file. (ng-click lo vedremo in seguito)
+Come possiamo vedere dichiariamo due funzioni che facciamo partire dall view con ng-click.
+Una volta definito il Controller è necessario dichiararlo nell'elemento HTML in cui desideriamo utilizzarlo con ng-controller.
+
+### Controller Hierarchy
+
 
 
